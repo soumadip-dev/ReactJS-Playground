@@ -1,12 +1,16 @@
 <h1 align="center">
   <br>
-  ReactJS Playground
+  ReactJS Playground 📗
   <br>
 </h1>
 
-<h3 align="center">
+<p align="center">
   A hands-on playground for learning React.js fundamentals, building reusable components, and creating interactive frontend applications through real-world projects
-</h3>
+</p>
+
+<div align="center">
+  <img src="./BASIC-PROJECT-JS-REACT/banner.png" alt="Banner" width="900">
+</div
 
 ---
 
@@ -52,7 +56,7 @@
 
 ---
 
-## 🛠️ Installation
+## 🤸 Installation
 
 ```bash
 git clone https://github.com/soumadip-dev/ReactJS-Playground.git
