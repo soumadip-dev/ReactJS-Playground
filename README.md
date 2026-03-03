@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  ReactJS Playground 📗
+  ReactJS Playground ⚛️
   <br>
 </h1>
 
