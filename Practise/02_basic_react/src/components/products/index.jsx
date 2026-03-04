@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProductItem from './components/product-item';
 import './style.css';
 const dummyProductData = [
@@ -8,14 +9,20 @@ const dummyProductData = [
 ];
 
 function ProductList() {
-  const flag = false;
+  const [flag, setFlag] = useState(true);
+  function handleFlagChange() {
+    setFlag(!flag);
+  }
   return (
     <div className="product-list">
-      <h3>{flag === true ? <>Ecommerce Project</> : <>Ecommerce App</>}</h3>
-
-      {dummyProductData.map(product => (
-        <ProductItem data={product} key={product.price} />
-      ))}
+      <button onClick={handleFlagChange}>Ecommerce Project</button>
+      {flag && (
+        <>
+          {dummyProductData.map(product => (
+            <ProductItem data={product} key={product.price} />
+          ))}
+        </>
+      )}
     </div>
   );
 }

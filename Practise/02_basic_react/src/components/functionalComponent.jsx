@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function FunctionalComponent() {
+  function handleShowText() {
+    setShowText(!showText);
+  }
+  const [showText, setShowText] = useState(true);
   return (
     <div>
-      <h4>Functional Component</h4>
+      {showText && <h4>Functional Component</h4>}
+      <button onClick={handleShowText}>{showText ? 'Hide' : 'Show'}</button>
     </div>
   );
 }
