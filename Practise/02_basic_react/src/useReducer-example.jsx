@@ -32,6 +32,7 @@ const UseReducerExample = () => {
     showTextFlag: true,
     chnageTextStyleFlag: false,
   };
+
   const HIDE_TEXT = 'HIDE_TEXT';
   const SHOW_TEXT = 'SHOW_TEXT';
   const CHANGE_TEXT_STYLE = 'CHANGE_TEXT_STYLE';
@@ -39,7 +40,6 @@ const UseReducerExample = () => {
   const reducer = (state, action) => {
     switch (action.type) {
       case HIDE_TEXT:
-        console.log('(state, action)', state, action);
         return { ...state, showTextFlag: false };
       case SHOW_TEXT:
         return { ...state, showTextFlag: true };
@@ -50,8 +50,6 @@ const UseReducerExample = () => {
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  console.log('Loggin from useReducer Example:', state);
 
   return (
     <div style={containerStyle}>
