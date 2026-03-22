@@ -1,13 +1,14 @@
-export default function CommonSelect({
-  label, // Text label for the dropdown
-  id, // HTML id attribute
-  name, // Field name (for form data)
-  value, // Currently selected value
-  options = [], // Array of options to display
-  placeholder, // Default "Select something" option
-  onChange, // What to do when selection changes
+export default function CommonTextarea({
+  label, // Text label
+  id, // HTML id
+  name, // Field name
+  value, // Current text value
+  placeholder, // Hint text
+  onChange, // What to do when typing
+  rows = 4, // Number of visible rows
   required = false, // Is this field required?
   disabled = false, // Is this field disabled?
+  maxLength, // Maximum characters allowed
 }) {
   return (
     <div style={{ marginBottom: '16px' }}>
@@ -31,14 +32,18 @@ export default function CommonSelect({
           )}
         </label>
       )}
-      {/* The selecy dropdown */}
-      <select
+
+      {/* Textarea field */}
+      <textarea
         id={id || name}
         name={name}
-        value={value || ''}
+        value={value || ''} // Ensure value is never undefined
         onChange={onChange}
+        placeholder={placeholder || `Enter ${label?.toLowerCase() || 'text'}...`}
+        rows={rows}
         required={required}
         disabled={disabled}
+        maxLength={maxLength}
         style={{
           display: 'block',
           padding: '10px 12px',
@@ -49,25 +54,23 @@ export default function CommonSelect({
           fontSize: '16px',
           lineHeight: '1.5',
           outline: 'none',
+          resize: 'vertical', // Allow vertical resizing only
           backgroundColor: disabled ? '#f5f5f5' : 'white',
-          cursor: disabled ? 'not-allowed' : 'pointer',
         }}
-      >
-        {/* If placeholder show the placeholder */}
-        {placeholder && (
-          <option value="" disabled>
-            {placeholder}
-          </option>
-        )}
-
-        {/* Map through all options and create option tag for each */}
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {' '}
-            {option.label}
-          </option>
-        ))}
-      </select>
+      />
+      {/* Character count (if maxLength is set) */}
+      {maxLength && (
+        <div
+          style={{
+            fontSize: '12px',
+            color: '#666',
+            marginTop: '6px',
+            textAlign: 'right',
+          }}
+        >
+          {value?.length || 0} / {maxLength} characters
+        </div>
+      )}
     </div>
   );
 }

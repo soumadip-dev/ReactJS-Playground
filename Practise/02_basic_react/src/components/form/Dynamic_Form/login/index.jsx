@@ -12,19 +12,21 @@ export default function Login() {
 
   function onHandleSubmit(event) {
     event.preventDefault();
-    console.log(loginFormData);
-    // Do api related tasks
     setLoginFormData(initialState);
+    // Send to server and get response
+    // For now, just logging the form data
+    console.log(loginFormData);
   }
+
   return (
-    <div className="container">
-      <h1>Login</h1>
+    <div className="container" style={{ maxWidth: '500px', margin: '0 auto', padding: '20px' }}>
+      <h1 style={{ marginBottom: '24px', fontSize: '28px', textAlign: 'center' }}>Login</h1>
       <CommonForm
-        formControls={loginFormElements}
-        formData={loginFormData}
-        setFormData={setLoginFormData}
-        buttonText={'Login'}
-        handleSubmit={onHandleSubmit}
+        formControls={loginFormElements} // Login form instructions
+        formData={loginFormData} // state
+        setFormData={setLoginFormData} // setState
+        buttonText={'Login'} // Text on the submit button
+        handleSubmit={onHandleSubmit} // Submit handler method
       />
     </div>
   );
