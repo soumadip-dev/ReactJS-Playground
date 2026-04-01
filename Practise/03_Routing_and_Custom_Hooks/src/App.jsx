@@ -6,6 +6,8 @@ import RecipeDetails from './pages/recipe-details';
 import NotFound from './pages/not-found';
 import Layout from './components/layout';
 
+import ReactHookForm from './pages/react-hook-form-zod';
+
 function AppRoutes() {
   const element = useRoutes([
     {
@@ -23,6 +25,10 @@ function AppRoutes() {
         {
           path: 'recipes/:id',
           element: <RecipeDetails />,
+        },
+        {
+          path: 'react-hook-form',
+          element: <ReactHookForm />,
         },
       ],
     },

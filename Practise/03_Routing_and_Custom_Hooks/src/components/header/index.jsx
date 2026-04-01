@@ -36,14 +36,14 @@ export default function Header() {
       >
         <li>
           <Link
-            to="/home/comments"
+            to="/home/react-hook-form"
             style={{
               textDecoration: 'none',
               color: '#333',
               fontSize: '15px',
             }}
           >
-            Alternative way to go to comments
+            React Hook Form
           </Link>
         </li>
 
