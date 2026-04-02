@@ -46,6 +46,18 @@ export default function Header() {
             React Hook Form
           </Link>
         </li>
+        <li>
+          <Link
+            to="/home/hook-practise"
+            style={{
+              textDecoration: 'none',
+              color: '#333',
+              fontSize: '15px',
+            }}
+          >
+            Hook Practise
+          </Link>
+        </li>
 
         <li>
           <button
