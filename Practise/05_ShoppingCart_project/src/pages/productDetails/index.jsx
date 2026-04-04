@@ -1,14 +1,21 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { ShoppingCartContext } from '../../context';
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const { productDetails, setProductDetails, setLoading, error, setError, loading } =
-    useContext(ShoppingCartContext);
-  const [selectedImage, setSelectedImage] = useState('');
+  const {
+    productDetails,
+    setProductDetails,
+    setLoading,
+    error,
+    setError,
+    loading,
+    handleAddToCart,
+    cartItems,
+  } = useContext(ShoppingCartContext);
 
-  const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState('');
 
   async function fetchProductDetails() {
     try {
@@ -34,10 +41,6 @@ export default function ProductDetails() {
       setSelectedImage(productDetails.thumbnail);
     }
   }, [productDetails]);
-
-  function handleGoToCart() {
-    navigate('/cart');
-  }
 
   if (loading)
     return (
@@ -184,9 +187,12 @@ export default function ProductDetails() {
             <div className="pt-4 space-y-3">
               <button
                 onClick={() => {
-                  handleGoToCart();
+                  handleAddToCart(productDetails);
                 }}
-                className="w-full px-6 py-3 text-sm font-medium text-white bg-linear-to-r from-cyan-600 to-blue-600 rounded-xl hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                disabled={
+                  productDetails && cartItems.findIndex(item => item.id === productDetails.id) > -1
+                }
+                className="w-full px-6 py-3 text-sm font-medium text-white bg-linear-to-r from-cyan-600 to-blue-600 rounded-xl hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg "
               >
                 Add to Cart
               </button>

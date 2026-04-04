@@ -11,5 +11,3 @@ createRoot(document.getElementById('root')).render(
     </ShoppingCartProvider>
   </BrowserRouter>
 );
-
-// https://youtu.be/dz458ZkBMak?si=4e-bT3jS3zPyZveL&t=24277
