@@ -9,7 +9,7 @@
 </p>
 
 <div align="center">
-  <img src="./BASIC-PROJECT-JS-REACT/banner.png" alt="Banner" width="900">
+  <img src="./BASIC-PROJECT-REACT-JS/banner.png" alt="Banner" width="900">
 </div
 
 ---
