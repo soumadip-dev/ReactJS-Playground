@@ -1,33 +1,6 @@
 import { useReducer } from 'react';
 
 const UseReducerExample = () => {
-  const containerStyle = {
-    padding: '30px',
-    fontFamily: 'Arial, sans-serif',
-    maxWidth: '500px',
-    margin: '40px auto',
-    backgroundColor: '#ffffff',
-    borderRadius: '10px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    textAlign: 'center',
-  };
-
-  const headingStyle = {
-    marginBottom: '20px',
-    color: '#333',
-  };
-
-  const buttonStyle = {
-    padding: '8px 14px',
-    margin: '6px',
-    borderRadius: '6px',
-    border: '1px solid #ccc',
-    backgroundColor: '#f5f7ff',
-    cursor: 'pointer',
-    fontSize: '14px',
-    transition: 'all 0.2s ease',
-  };
-
   const initialState = {
     showTextFlag: true,
     chnageTextStyleFlag: false,
@@ -68,6 +41,33 @@ const UseReducerExample = () => {
       </button>
     </div>
   );
+};
+
+const containerStyle = {
+  padding: '30px',
+  fontFamily: 'Arial, sans-serif',
+  maxWidth: '500px',
+  margin: '40px auto',
+  backgroundColor: '#ffffff',
+  borderRadius: '10px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+  textAlign: 'center',
+};
+
+const headingStyle = {
+  marginBottom: '20px',
+  color: '#333',
+};
+
+const buttonStyle = {
+  padding: '8px 14px',
+  margin: '6px',
+  borderRadius: '6px',
+  border: '1px solid #ccc',
+  backgroundColor: '#f5f7ff',
+  cursor: 'pointer',
+  fontSize: '14px',
+  transition: 'all 0.2s ease',
 };
 
 export default UseReducerExample;
