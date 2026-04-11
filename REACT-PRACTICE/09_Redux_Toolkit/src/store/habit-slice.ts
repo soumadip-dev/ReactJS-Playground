@@ -76,16 +76,16 @@ const habitSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase('habits/fetchHabits/pending', state => {
+      .addCase(fetchHabits.pending, state => {
         state.isLoading = true;
       })
-      .addCase('habits/fetchHabits/fulfilled', (state, action) => {
+      .addCase(fetchHabits.fulfilled, (state, action) => {
         state.isLoading = false;
         state.habits = action.payload;
       })
-      .addCase('habits/fetchHabits/rejected', (state, action) => {
+      .addCase(fetchHabits.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.error.message || 'Something went wrong';
       });
   },
 });
